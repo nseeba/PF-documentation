@@ -3,8 +3,6 @@ Welcome to the documentation of the CMS Particle Flow Algorithm.
 
 The aim of this page is to provide a centralized overview of the CMS Particle Flow algorithm.
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
 ## Commands
 
 * Core Particle Flow algorithm
