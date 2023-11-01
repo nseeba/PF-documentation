@@ -1,6 +1,8 @@
-# Page 2
+# Core PF algo
 
 ## Another heading
+
+### ParticleFlow <a href="https://github.com/cms-sw/cmssw/tree/master/RecoParticleFlow/PFProducer/src" target="_blank" rel="noopener">Github</a> repository
 
 ### Codeblocks
 

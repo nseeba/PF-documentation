@@ -1,13 +1,15 @@
-# Welcome to MkDocs
+# Home
+Welcome to the documentation of the CMS Particle Flow Algorithm.
+
+The aim of this page is to provide a centralized overview of the CMS Particle Flow algorithm.
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 ## Commands
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+* Core Particle Flow algorithm
+* Particle Flow Block algorithm
+
 
 ## Project layout
 
