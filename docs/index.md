@@ -17,3 +17,12 @@ These particles include:<br>
 * [Neutral hadrons](page2.md#neutral-hadrons)
 
 ## How do particles traverse through the CMS detector?
+
+Starting from the beam interaction region, particles will enter:
+
+* Inner tracker
+* Electromagnetic calorimeter (ECAL)
+* Hadronic calorimeter (HCAL)
+* Muon chambers
+
+The CMS detector has a large superconducting solenoid magnet is its central feature. The solenoid ...
