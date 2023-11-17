@@ -47,6 +47,8 @@ PFAlgo::PFAlgo(double nSigmaECAL,
   assert(factors45_.size() == 2);
 ```
 
+### Link algorithm
+
 ## Identification and reconstruction of particles
 
 ### Muons
