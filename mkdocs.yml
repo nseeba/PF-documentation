@@ -13,7 +13,7 @@ theme:
     - content.code.copy
   language: en
   palette:
-      - scheme: default
+    - scheme: default
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
@@ -25,7 +25,6 @@ theme:
         name: Switch to dark mode
       primary: cyan
       accent: purple
-
 
 markdown_extensions:
   - pymdownx.highlight:
