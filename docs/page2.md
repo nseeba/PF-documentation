@@ -1,6 +1,6 @@
-# Core PF algo
+# Core Particle Flow algorithm
 
-## Another heading
+## Overview of the core PF algorithm
 
 ### ParticleFlow <a href="https://github.com/cms-sw/cmssw/tree/master/RecoParticleFlow/PFProducer/src" target="_blank" rel="noopener">Github</a> repository
 
@@ -9,6 +9,8 @@
 Some `code` goes here
 
 ### C++ codeblock
+PLACEHOLDER, JUST AN EXAMPLE OF A CODEBLOCK
+
 PFAlgo function:
 ```c++ title="PFAlgo.cc"
 PFAlgo::PFAlgo(double nSigmaECAL,
@@ -44,3 +46,54 @@ PFAlgo::PFAlgo(double nSigmaECAL,
   factors45_ = pset.getParameter<std::vector<double>>("factors_45");
   assert(factors45_.size() == 2);
 ```
+
+## Identification and reconstruction of particles
+
+### Muons
+TEXT IS NOT FINAL, JUST USED AS A PLACEHOLDER FOR NOW
+
+The identification of muons in the PF algorithm goes by a set of selections based on the global and tracker muon properties.
+
+1. Isolated global muons are selected by considering additional inner tracks and calorimeter energy deposits with a distance deltaR to the muon direction in the eta,phi plane smaller than 0.3 The sum of the pT of the tracks and of the ET of the deposits is required not to exceed 10% of the muon pT. This isolation criteria is enough to reject hadrons that would be misidentified as muons. No further selection is applied to these candidates.
+2. More strict identification criteria is needed for muons inside jets. The PF algorithm will tend to create additional spurious/fake neutral particles from calorimeter deposits in the case of charged hadrons being misidentified as muons. (because of punch-through). Unidentified muons will be considered to be charged hadrons, and will absorb the energy deposits of nearby neutral particles.<br>
+For nonisolated global muons, the tight-muon selection is applied. It is required also that at least 3 matching track segments are found in the muon detectors, or that the calorimeter deposits associated with the track are compatible with the muon hypothesis. This selection removes most of the high pT hadrons misidentified as muons because of punch through, as well as accidental associations of tracker and standalone muon tracks.
+3. Muons failing tigh-muon selection because of:
+
+    * Poorly reconstructed inner track. For example hit confusion with other nearby tracks. These are salvaged if the standalone muon track fit is of high quality and associated with a large nr of hits in the detectors (23/32 DT, 15/24 CSC).
+    * Poor global fit. If a high quality fit is obtained with at least 13 hits in the tracker, the muon is selected, if the associated calorimeter clusters are compatible with the muon hypothesis.
+
+4. Momentum of the muon is chosen to be that of the inner track if its pT < 200 GeV. Above this value, momentum is chosen according to the smallest Chi squared probability from the different track fits: tracker only, tracker and 1st muon detector plane, global, global without the muon detector planes featuring a high occupancy.
+5. The PF elements making up these identified muons are masked against further processing in the corresponding PF block, which means are not used as building elements for other particles. At this point muon identification and reconstruction is not complete yet! Charged hadron candidates are checked for compatibility of the measurements of their momenta in the tracker and energies in calorimeters. If the track momenta is significally higher than the calibrated sum of the linked calorimeter clusters, the muon identification criteria is revisited with looser selections on the fit quality and on the hit or segment associations. Basically everything is done with looser selection criteria.
+
+
+### Electrons
+TEXT IS NOT FINAL, JUST USED AS A PLACEHOLDER FOR NOW
+
+Electron reconstruction is based on the information from both the inner tracker and the calorimeters. Electrons often emit bremsstrahlung photons and photons often convert to electron/positron pairs, which in turn emit bremsstrahlung photons again etc, due to the large amount of material in the tracker. Because of this the basic properties and technical issues to be solved for the tracking and the energy deposition patterns of electrons and photons are similar - isolated photon reconstruction is done at the same time as electron reconstruction. In a given PF block, an electron candidate is seeded from a GSF track, provided that the corresponding ECAL cluster is not linked to 3 or more additional tracks. A photon candidate is seeded from an ECAL supercluster with ET>10GeV that isn’t linked to a GSF track, since photons don't leave tracks. 
+
+ECAL-based electron candidates and photon candidates: The sum of the energies measured in the HCAL cells with a distance to the supercluster position smaller than 0.15 in the eta,phi plane must not exceed 10% of the supercluster energy. All ECAL clusters in the PF block linked either to the supercluster or to one of the GSF track tangents have to be associated with the candidate, in order to ensure an optimal energy containment. Tracks linked to ECAL clusters are associated in turn if the track momentum and energy of the HCAL cluster linked to the track are compatible with the electron hypothesis. Tracks and ECAL clusters belonging to identified photon conversions linked to the GSF track tangents are also associated.
+
+Energy corrections have to be applied. The total energy of the ECAL clusters is corrected for the energy missed in the association process with analytical functions of E and eta (I think this is basically due to the brem and conversion processes). The corrections can be as large as 25% at abs eta = 1.5 where the tracker thickness is largest, and at low pT. The corrected energy is assigned to photons and the photon direction is taken to be that of the supercluster. The final energy assignment for electrons is obtained from a combination of the corrected ECAl energy with the momentum of the GSF track and the electron direction is set to be that of the GSF track. So basically ECAL energy gets corrected, the energy is assigned to photons (brem photons) and the electron energy is assigned from the corrected ECAL energy (electron clusters plus the brem photons) and the GSF momentum.
+
+Additional identification criteria is applied to electron candidates - up to 14 variables, including:
+
+1. The amount of energy radiated off the GSF track
+2. The distance between the GSF track extrapolation to the ECAL entrance and the position of the ECAL seeding cluster
+3. The ratio between the energies gathered in HCAL and ECAL by the track-cluster association process
+4. The KF and GSF track chi squared and nr of hits
+
+These 14 variables are combined in BDTs trained separately in the ECAL barrel and endcaps acceptance and for isolated and nonisolated electrons. 
+
+Photon candidates are kept if they are isolated from other tracks and calorimeter clusters in the event, and if the ECAL cell energy distribution and the ratio between the HCAL and ECAL energies are compatible with those expected from a photon shower. Long story short - Photon candidates are expected to be isolated from other tracks and calorimeter clusters, they also have to satisfy energy conditions in the calorimeters fitting for photon showers. The PF selection for isolated photons is looser than that of requirements applied to analysis level isolated photons. 
+
+Like usual all tracks and clusters in the PF block used to reconstruct electrons and photons are masked against further processing. Tracks identified as originating from photon conversion but not used in the reconstruction process are masked as well, as they are usually poorly measured and likely to be misreconstructed tracks. The distinction between electrons and photons in the PF global event description can be different from a selection optimized for a specialized analysis. To combat this, the complete history of the electron and photon reconstruction is tracked and saved, to allow a different event interpretation to be made without running the whole PF algorithm again.
+
+
+### Photons
+Dummy text
+
+### Charged hadrons
+Dummy text
+
+### Neutral hadrons
+Dummy text
