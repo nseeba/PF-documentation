@@ -4,6 +4,9 @@
 
 ### ParticleFlow <a href="https://github.com/cms-sw/cmssw/tree/master/RecoParticleFlow/PFProducer/src" target="_blank" rel="noopener">Github</a> repository
 
+ ![pfalgo](assets/pfalgo.drawio.svg)
+
+
 ### Codeblocks
 
 Some `code` goes here
