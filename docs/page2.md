@@ -2,7 +2,9 @@
 
 ## Overview of the core PF algorithm
 
-### ParticleFlow <a href="https://github.com/cms-sw/cmssw/tree/master/RecoParticleFlow/PFProducer/src" target="_blank" rel="noopener">Github</a> repository
+<a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFAlgo.cc" target="_blank" rel="noopener">PFAlgo</a> - The core of Particle Flow reconstruction.
+
+Link to the <a href="https://github.com/cms-sw/cmssw/tree/master/RecoParticleFlow/PFProducer/src" target="_blank" rel="noopener">Particle Flow Github repository</a>
 
  ![pfalgo](assets/pfalgo.drawio.svg)
 
@@ -51,11 +53,29 @@ PFAlgo::PFAlgo(double nSigmaECAL,
 ```
 
 ### Link algorithm
+The Link algorithm is the first step in particle reconstruction. It aims to connect PF elements from different subdetectors, since a single particle gives rise to many PF elements in the various CMS subdetectors, for example a muon leaves tracks in the tracker and hits in the muon detectors. 
 
 ## Identification and reconstruction of particles
 
 ### Muons
-TEXT IS NOT FINAL, JUST USED AS A PLACEHOLDER FOR NOW
+TEXT IS NOT FINAL
+ ![pfalgo](assets/mutrack.drawio.svg){ align=right }
+
+Since muons are electrically charged particles, they leave tracks in the inner tracking system of CMS. They have little or no interactions with both the ECAL and HCAL, but they do interact with the CMS muon spectrometer (muon detectors), consisting of drift tube (DT) chambers, cathode strip chambers (CSC), and resistive plate chambers (RPC). 
+
+The muon spectrometer grants a high efficiency for muon identification over the full detector acceptance. A high purity is achieved, due to the ECAL and HCAL absorbing the other particles except neutrinos. The momentum of muons is precisely measured by the inner tracker.<br>
+The final collection of muon physics objects comprises of 3 types:
+
+* Standalone muon
+<br>
+Hits within each DT or CSC detector are clustered to form track segments. These track segments are used as seeds for the pattern recognition in the muon spectrometer, which aims to gather all DT, CSC, RPC hits along the muon trajectory. The result of the final fitting is called a standalone muon track.
+* Global muon
+<br>
+Each standalone-muon track is matched to a track in the inner tracker (inner track), if the parameters of the corresponding tracks propagated onto a common surface are compatible. The hits from the two tracks are combined and fit to form a global muon track. 
+* Tracker muon
+<br>
+Inner tracks with $p_T>0.5$ GeV and total momentum $p>2.5$ GeV are extrapolated to the muon spectrometer. If at least 1 track segment matches the extrapolated track, the inner track passes as a tracker muon track. The track to segment matching is done in a local coordinate system $(x,y)$ that is defined in a plane transverse to the beam axis, where $x$ is the better measured coordinate. The track and segment are matched if the absolute value of the difference between their positions in the x coordinate $|\Delta x|<3$ cm or if the ratio of this distance to its uncertainty (pull) is smaller than 4.
+
 
 The identification of muons in the PF algorithm goes by a set of selections based on the global and tracker muon properties.
 
@@ -72,7 +92,7 @@ For nonisolated global muons, the tight-muon selection is applied. It is require
 
 
 ### Electrons
-TEXT IS NOT FINAL, JUST USED AS A PLACEHOLDER FOR NOW
+TEXT IS NOT FINAL
 
 Electron reconstruction is based on the information from both the inner tracker and the calorimeters. Electrons often emit bremsstrahlung photons and photons often convert to electron/positron pairs, which in turn emit bremsstrahlung photons again etc, due to the large amount of material in the tracker. Because of this the basic properties and technical issues to be solved for the tracking and the energy deposition patterns of electrons and photons are similar - isolated photon reconstruction is done at the same time as electron reconstruction. In a given PF block, an electron candidate is seeded from a GSF track, provided that the corresponding ECAL cluster is not linked to 3 or more additional tracks. A photon candidate is seeded from an ECAL supercluster with ET>10GeV that isn’t linked to a GSF track, since photons don't leave tracks. 
 
