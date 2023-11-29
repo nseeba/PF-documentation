@@ -8,7 +8,7 @@ Link to the <a href="https://github.com/cms-sw/cmssw/tree/master/RecoParticleFlo
 
  ![pfalgo](assets/pfalgo.drawio.svg)
 
-Add here also a flowchart that shows how code elements are connected
+Add here also a flowchart that shows how code elements are connected.
 
 ### Codeblocks
 
