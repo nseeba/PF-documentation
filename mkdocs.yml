@@ -51,8 +51,8 @@ extra_javascript:
 extra_css:
   - assets/stylesheets/glightbox.min.css
 
-plugins:
-   - glightbox
+# plugins:
+#    - glightbox
 
 copyright: |
   &copy; 2023
