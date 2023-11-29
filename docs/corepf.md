@@ -2,21 +2,21 @@
 
 ## Overview of the core PF algorithm
 
-<a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFAlgo.cc" target="_blank" rel="noopener">PFAlgo</a> - The core of Particle Flow reconstruction.
+<a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFAlgo.cc" target="_blank" rel="noopener">PFAlgo.cc</a> - The core of Particle Flow reconstruction. 
 
 Link to the <a href="https://github.com/cms-sw/cmssw/tree/master/RecoParticleFlow/PFProducer/src" target="_blank" rel="noopener">Particle Flow Github repository</a>
 
  ![pfalgo](assets/pfalgo.drawio.svg)
 
+Add here also a flowchart that shows how code elements are connected
 
 ### Codeblocks
 
-Some `code` goes here
+Test `PFAlgo::PFAlgo`
 
 ### C++ codeblock
-PLACEHOLDER, JUST AN EXAMPLE OF A CODEBLOCK
+PLACEHOLDER
 
-PFAlgo function:
 ```c++ title="PFAlgo.cc"
 PFAlgo::PFAlgo(double nSigmaECAL,
                double nSigmaHCAL,
@@ -53,10 +53,12 @@ PFAlgo::PFAlgo(double nSigmaECAL,
 ```
 
 ### Link algorithm
-The Link algorithm is the first step in particle reconstruction. It aims to connect PF elements from different subdetectors, since a single particle gives rise to many PF elements in the various CMS subdetectors, for example a muon leaves tracks in the tracker and hits in the muon detectors. 
+The Link algorithm is the first step in particle reconstruction. It aims to connect PF elements from different subdetectors, since a single particle gives rise to many PF elements in the various CMS subdetectors, for example a muon leaves tracks in the tracker and hits in the muon detectors. This is also the part where [PF Block](pfblock.md) comes into play. 
+<br>
+PF blocks consist of PF elements associated either by a direct link or indirect link through common elements. The link algorithm takes pairs of PF elements in an event and tests them. If two elements are linked, the algorithm will define a distance between them, quantifying the quality of the link. 
 
 ## Identification and reconstruction of particles
-
+This section is based on <a href="https://arxiv.org/pdf/1706.04965.pdf" target="_blank" rel="noopener">"Particle-flow reconstruction and global event description with the CMS detector"</a> by the CMS collaboration released in 2017.
 ### Muons
 TEXT IS NOT FINAL
  ![pfalgo](assets/mutrack.drawio.svg){ align=right }

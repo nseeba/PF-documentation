@@ -2,7 +2,7 @@
 Welcome to the documentation of the CMS Particle Flow Algorithm. <br> 
 The aim of this page is to provide a centralized overview of the CMS Particle Flow algorithm with the main focus being on:
 
-* [Core Particle Flow algorithm](page2.md)
+* [Core Particle Flow algorithm](corepf.md)
 * [Particle Flow Block algorithm](pfblock.md)
 
 This page is based on <a href="https://arxiv.org/pdf/1706.04965.pdf" target="_blank" rel="noopener">[1]</a>.
@@ -12,11 +12,11 @@ This page is based on <a href="https://arxiv.org/pdf/1706.04965.pdf" target="_bl
 The Particle Flow (PF) algorithm is used to reconstruct and identify individually all particles produced in CMS by combining information from all subdetectors.<br>
 These particles include:<br>
 
-* [Muons](page2.md#muons)
-* [Electrons](page2.md#electrons)
-* [Photons](page2.md#photons)
-* [Charged hadrons](page2.md#charged-hadrons)
-* [Neutral hadrons](page2.md#neutral-hadrons)
+* [Muons](corepf.md#muons)
+* [Electrons](corepf.md#electrons)
+* [Photons](corepf.md#photons)
+* [Charged hadrons](corepf.md#charged-hadrons)
+* [Neutral hadrons](corepf.md#neutral-hadrons)
 
 ## How do particles traverse through the CMS detector?
 
