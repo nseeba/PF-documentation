@@ -10,11 +10,15 @@ Link to the <a href="https://github.com/cms-sw/cmssw/tree/master/RecoParticleFlo
 
 Add here also a flowchart that shows how code elements are connected.
 
-### Codeblocks
+### Link algorithm
+The Link algorithm is the first step in particle reconstruction. It aims to connect PF elements from different subdetectors, since a single particle gives rise to many PF elements in the various CMS subdetectors, for example a muon leaves tracks in the tracker and hits in the muon detectors. This is also the part where [PF Block](pfblock.md) comes into play. 
+<br>
+PF blocks consist of PF elements associated either by a direct link or indirect link through common elements. The link algorithm takes pairs of PF elements in an event and tests them. If two elements are linked, the algorithm will define a distance between them, quantifying the quality of the link. 
+
+## Code
 
 Test `PFAlgo::PFAlgo`
 
-### C++ codeblock
 PLACEHOLDER
 
 ```c++ title="PFAlgo.cc"
@@ -38,8 +42,38 @@ PFAlgo::PFAlgo(double nSigmaECAL,
   const edm::ParameterSet pfMuonAlgoParams = pset.getParameter<edm::ParameterSet>("PFMuonAlgoParameters");
   bool postMuonCleaning = pset.getParameter<bool>("postMuonCleaning");
   pfmu_ = std::make_unique<PFMuonAlgo>(pfMuonAlgoParams, postMuonCleaning);
-```
 
+  // HF resolution parameters
+  assert(resolHF_square_.size() == 3);  // make sure that stochastic, constant, noise (i.e. three) terms are specified.
+
+  // Muon parameters
+  muonHCAL_ = pset.getParameter<std::vector<double>>("muon_HCAL");
+  muonECAL_ = pset.getParameter<std::vector<double>>("muon_ECAL");
+  muonHO_ = pset.getParameter<std::vector<double>>("muon_HO");
+  assert(muonHCAL_.size() == 2 && muonECAL_.size() == 2 && muonHO_.size() == 2);
+  nSigmaTRACK_ = pset.getParameter<double>("nsigma_TRACK");
+  ptError_ = pset.getParameter<double>("pt_Error");
+  factors45_ = pset.getParameter<std::vector<double>>("factors_45");
+  assert(factors45_.size() == 2);
+
+  // Bad Hcal Track Parameters
+  goodTrackDeadHcal_ptErrRel_ = pset.getParameter<double>("goodTrackDeadHcal_ptErrRel");
+  goodTrackDeadHcal_chi2n_ = pset.getParameter<double>("goodTrackDeadHcal_chi2n");
+  goodTrackDeadHcal_layers_ = pset.getParameter<uint32_t>("goodTrackDeadHcal_layers");
+  goodTrackDeadHcal_validFr_ = pset.getParameter<double>("goodTrackDeadHcal_validFr");
+  goodTrackDeadHcal_dxy_ = pset.getParameter<double>("goodTrackDeadHcal_dxy");
+
+  goodPixelTrackDeadHcal_minEta_ = pset.getParameter<double>("goodPixelTrackDeadHcal_minEta");
+  goodPixelTrackDeadHcal_maxPt_ = pset.getParameter<double>("goodPixelTrackDeadHcal_maxPt");
+  goodPixelTrackDeadHcal_ptErrRel_ = pset.getParameter<double>("goodPixelTrackDeadHcal_ptErrRel");
+  goodPixelTrackDeadHcal_chi2n_ = pset.getParameter<double>("goodPixelTrackDeadHcal_chi2n");
+  goodPixelTrackDeadHcal_maxLost3Hit_ = pset.getParameter<int32_t>("goodPixelTrackDeadHcal_maxLost3Hit");
+  goodPixelTrackDeadHcal_maxLost4Hit_ = pset.getParameter<int32_t>("goodPixelTrackDeadHcal_maxLost4Hit");
+  goodPixelTrackDeadHcal_dxy_ = pset.getParameter<double>("goodPixelTrackDeadHcal_dxy");
+  goodPixelTrackDeadHcal_dz_ = pset.getParameter<double>("goodPixelTrackDeadHcal_dz");
+}
+```
+Example of highlighting lines
 ```c++ hl_lines="2 3 4" linenums="39" title="PFAlgo.cc"
   // Muon parameters
   muonHCAL_ = pset.getParameter<std::vector<double>>("muon_HCAL");
@@ -51,11 +85,6 @@ PFAlgo::PFAlgo(double nSigmaECAL,
   factors45_ = pset.getParameter<std::vector<double>>("factors_45");
   assert(factors45_.size() == 2);
 ```
-
-### Link algorithm
-The Link algorithm is the first step in particle reconstruction. It aims to connect PF elements from different subdetectors, since a single particle gives rise to many PF elements in the various CMS subdetectors, for example a muon leaves tracks in the tracker and hits in the muon detectors. This is also the part where [PF Block](pfblock.md) comes into play. 
-<br>
-PF blocks consist of PF elements associated either by a direct link or indirect link through common elements. The link algorithm takes pairs of PF elements in an event and tests them. If two elements are linked, the algorithm will define a distance between them, quantifying the quality of the link. 
 
 ## Identification and reconstruction of particles
 This section is based on <a href="https://arxiv.org/pdf/1706.04965.pdf" target="_blank" rel="noopener">"Particle-flow reconstruction and global event description with the CMS detector"</a> by the CMS collaboration released in 2017.
