@@ -1,9 +1,12 @@
-# Home
+# Overview
+<span style="color:red">**PRELIMINARY (COMMENTS WELCOME)**</span>
+
 Welcome to the documentation of the CMS Particle Flow Algorithm. <br> 
 The aim of this page is to provide a centralized overview of the CMS Particle Flow algorithm with the main focus being on:
 
-* [Core Particle Flow algorithm](corepf.md)
 * [Particle Flow Block algorithm](pfblock.md)
+* [Core Particle Flow algorithm](corepf.md)
+
 
 This page is based on <a href="https://arxiv.org/pdf/1706.04965.pdf" target="_blank" rel="noopener">[1]</a>.
 
@@ -17,6 +20,8 @@ These particles include:<br>
 * [Photons](corepf.md#photons)
 * [Charged hadrons](corepf.md#charged-hadrons)
 * [Neutral hadrons](corepf.md#neutral-hadrons)
+
+Link to the <a href="https://github.com/cms-sw/cmssw/tree/master/RecoParticleFlow/PFProducer/src" target="_blank" rel="noopener">Particle Flow Github repository</a>
 
 ## How do particles traverse through the CMS detector?
 
@@ -38,6 +43,13 @@ The CMS detector has a large superconducting solenoid magnet as its central feat
 3. The same thing happens in the HCAL with charged and neutral hadrons, which may start showering in the ECAL as well but they get fully absorbed in the HCAL.
 4. After the calorimeters, the remaining particles are muons, which have little or no interactions with the calorimeters, and neutrinos, which escape the detector undetected. Muons produce hits in the muon detectors.
 
+## Code organization overview
+<span style="color:red">**WORK IN PROGRESS**</span>
+
+ ![pfalgo](assets/pfalgo.drawio.svg)
+ <figcaption>Figure 2. Physics-based overview of the Particle Flow algorithm </figcaption> 
+
+[PFElements](pfblock.md/#What-are-PF-elements) -(<a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFBlockAlgo.cc" target="_blank" rel="noopener">PFBlockAlgo</a>)> [PFBlock](pfblock.md/#overview-of-the-pfblock-algorithm) -(<a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFAlgo.cc" target="_blank" rel="noopener">PFAlgo</a>)> [PFCandidates](corepf.md/#identification-and-reconstruction-of-pf-candidates)
 
 References
 -----

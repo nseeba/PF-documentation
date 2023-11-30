@@ -26,6 +26,11 @@ theme:
       primary: cyan
       accent: lime
 
+nav:
+  - "index.md"
+  - "pfblock.md"
+  - "corepf.md"
+
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true

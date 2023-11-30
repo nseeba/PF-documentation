@@ -1,23 +1,25 @@
 # Particle Flow Block algorithm
-Add overall flowcharts of the PFBlock algo, both physical and code
+<span style="color:red">**PRELIMINARY (COMMENTS WELCOME)**</span>
+
+## What are PF elements?
+<span style="color:red">**TO DO**</span>
+
+Elaborate on clusters and tracks
 
 ## Overview of the PFBlock algorithm
-PF blocks are collections of PF elements that are connected either through a direct link or an indirect link through common elements. 
 
-In each PF block the identification and reconstruction sequence proceeds as so:
-
-1. Muon candidates are identified and reconstructed and the corresponding PF elements are removed from the PF block. 
-2. Electron identification and reconstruction with the aim of collecting the energy of all bremsstrahlung photons. Energetic and isolated photons, both converted and unconverted, are also identified here. Corresponding tracks and ECAL or preshower clusters are removed from further consideration.
-3. The remaining elements in the PF block are then subject to a cross-identification of charged hadrons, neutral hadrons, and photons, arising from parton fragmentation, hadronization, and decays in jets.
-4. Nuclear interactions coming from hadrons create secondary particles. These hadrons are identified and reconstructed.
-5. When the global event description becomes available, meaning when all blocks have been processed and all particles identified, the reconstructed event is revisited by a post-processing step.
-
-So in conclusion particles are dealt with in this order: muons, electrons, hadrons, photons, nuclear interactions. When one of them is processed, the corresponding tracks-clusters-links are removed from further consideration. 
+### Link algorithm
+The Link algorithm is the first step in particle reconstruction. It aims to connect PF elements from different subdetectors, since a single particle gives rise to many PF elements in the various CMS subdetectors, for example a muon leaves tracks in the tracker and hits in the muon detectors. This is also the part where PF Blocks come into play. 
 <br>
-One can think like this -  LINKS-BLOCKS-PARTICLES.
+PF blocks consist of PF elements associated either by a direct link or indirect link through common elements. The link algorithm takes pairs of PF elements in an event and tests them. If two elements are linked, the algorithm will define a distance between them, quantifying the quality of the link. 
+
+<span style="color:red">**TO DO / WORK IN PROGRESS**</span>
+
+Add here a flowchart describing the physics logic of the PFBlockAlgo and another one for the code organization.
 
 ## Code
-PLACEHOLDER
+<span style="color:red">**TO DO**</span>
+
 ```c++ title="PFBlockAlgo.cc"
 PFBlockAlgo::PFBlockAlgo()
     : debug_(false),

@@ -1,25 +1,32 @@
 # Core Particle Flow algorithm
+<span style="color:red">**PRELIMINARY (COMMENTS WELCOME)**</span>
 
 ## Overview of the core PF algorithm
 
 <a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFAlgo.cc" target="_blank" rel="noopener">PFAlgo.cc</a> - The core of Particle Flow reconstruction. 
 
-Link to the <a href="https://github.com/cms-sw/cmssw/tree/master/RecoParticleFlow/PFProducer/src" target="_blank" rel="noopener">Particle Flow Github repository</a>
+<span style="color:red">**TO DO / WORK IN PROGRESS**</span>
 
- ![pfalgo](assets/pfalgo.drawio.svg)
+Explain both the physics logic and the code organization of PFALgo
 
-Add here also a flowchart that shows how code elements are connected.
 
-### Link algorithm
-The Link algorithm is the first step in particle reconstruction. It aims to connect PF elements from different subdetectors, since a single particle gives rise to many PF elements in the various CMS subdetectors, for example a muon leaves tracks in the tracker and hits in the muon detectors. This is also the part where [PF Block](pfblock.md) comes into play. 
+In each PF block the identification and reconstruction sequence proceeds as so:
+
+1. Muon candidates are identified and reconstructed and the corresponding PF elements are removed from the PF block. 
+2. Electron identification and reconstruction with the aim of collecting the energy of all bremsstrahlung photons. Energetic and isolated photons, both converted and unconverted, are also identified here. Corresponding tracks and ECAL or preshower clusters are removed from further consideration.
+3. The remaining elements in the PF block are then subject to a cross-identification of charged hadrons, neutral hadrons, and photons, arising from parton fragmentation, hadronization, and decays in jets.
+4. Nuclear interactions coming from hadrons create secondary particles. These hadrons are identified and reconstructed.
+5. When the global event description becomes available, meaning when all blocks have been processed and all particles identified, the reconstructed event is revisited by a post-processing step.
+
+So in conclusion particles are dealt with in this order: muons, electrons, hadrons, photons, nuclear interactions. When one of them is processed, the corresponding tracks-clusters-links are removed from further consideration. 
 <br>
-PF blocks consist of PF elements associated either by a direct link or indirect link through common elements. The link algorithm takes pairs of PF elements in an event and tests them. If two elements are linked, the algorithm will define a distance between them, quantifying the quality of the link. 
+One can think like this -  LINKS-BLOCKS-PARTICLES.
+
 
 ## Code
+<span style="color:red">**TO DO**</span>
 
 Test `PFAlgo::PFAlgo`
-
-PLACEHOLDER
 
 ```c++ title="PFAlgo.cc"
 PFAlgo::PFAlgo(double nSigmaECAL,
@@ -86,10 +93,12 @@ Example of highlighting lines
   assert(factors45_.size() == 2);
 ```
 
-## Identification and reconstruction of particles
+## Identification and reconstruction of PF candidates
 This section is based on <a href="https://arxiv.org/pdf/1706.04965.pdf" target="_blank" rel="noopener">"Particle-flow reconstruction and global event description with the CMS detector"</a> by the CMS collaboration released in 2017.
+
+All particles reconstructed by the PF algorithm are called PF candidates. The sections that follow describe the identification and reconstruction of the different types of PF candidates, which are also used to build taus, jets, and determine the missing transverse energy (MET).
+
 ### Muons
-TEXT IS NOT FINAL
  ![pfalgo](assets/mutrack.drawio.svg){ align=right }
 
 Since muons are electrically charged particles, they leave tracks in the inner tracking system of CMS. They have little or no interactions with both the ECAL and HCAL, but they do interact with the CMS muon spectrometer (muon detectors), consisting of drift tube (DT) chambers, cathode strip chambers (CSC), and resistive plate chambers (RPC). 
@@ -107,6 +116,7 @@ Each standalone-muon track is matched to a track in the inner tracker (inner tra
 <br>
 Inner tracks with $p_T>0.5$ GeV and total momentum $p>2.5$ GeV are extrapolated to the muon spectrometer. If at least 1 track segment matches the extrapolated track, the inner track passes as a tracker muon track. The track to segment matching is done in a local coordinate system $(x,y)$ that is defined in a plane transverse to the beam axis, where $x$ is the better measured coordinate. The track and segment are matched if the absolute value of the difference between their positions in the x coordinate $|\Delta x|<3$ cm or if the ratio of this distance to its uncertainty (pull) is smaller than 4.
 
+<span style="color:red">**WORK IN PROGRESS**</span>
 
 The identification of muons in the PF algorithm goes by a set of selections based on the global and tracker muon properties.
 
@@ -123,7 +133,7 @@ For nonisolated global muons, the tight-muon selection is applied. It is require
 
 
 ### Electrons
-TEXT IS NOT FINAL
+<span style="color:red">**TO DO**</span>
 
 Electron reconstruction is based on the information from both the inner tracker and the calorimeters. Electrons often emit bremsstrahlung photons and photons often convert to electron/positron pairs, which in turn emit bremsstrahlung photons again etc, due to the large amount of material in the tracker. Because of this the basic properties and technical issues to be solved for the tracking and the energy deposition patterns of electrons and photons are similar - isolated photon reconstruction is done at the same time as electron reconstruction. In a given PF block, an electron candidate is seeded from a GSF track, provided that the corresponding ECAL cluster is not linked to 3 or more additional tracks. A photon candidate is seeded from an ECAL supercluster with ET>10GeV that isn’t linked to a GSF track, since photons don't leave tracks. 
 
@@ -146,10 +156,10 @@ Like usual all tracks and clusters in the PF block used to reconstruct electrons
 
 
 ### Photons
-Dummy text
+<span style="color:red">**TO DO**</span>
 
 ### Charged hadrons
-Dummy text
+<span style="color:red">**TO DO**</span>
 
 ### Neutral hadrons
-Dummy text
+<span style="color:red">**TO DO**</span>
