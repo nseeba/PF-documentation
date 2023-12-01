@@ -1,7 +1,4 @@
 # Overview
-<import assets/javascript/glightbox.min.js>
-<import assets/stylesheets/glightbox.min.css>
-
 <span style="color:red">**PRELIMINARY (COMMENTS WELCOME)**</span>
 
 Welcome to the documentation of the CMS Particle Flow Algorithm. <br> 

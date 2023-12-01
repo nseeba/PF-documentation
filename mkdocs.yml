@@ -57,12 +57,12 @@ extra_javascript:
 extra_css:
   - assets/stylesheets/glightbox.min.css
 
-plugins:
-  - glightbox:
-      zoomable: true
-      draggable: true
-      skip_classes:
-        - skip-lightbox
+# plugins:
+#   - glightbox:
+#       zoomable: true
+#       draggable: true
+#       skip_classes:
+#         - skip-lightbox
 
 copyright: |
   &copy; 2023
