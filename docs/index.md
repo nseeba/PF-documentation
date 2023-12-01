@@ -10,6 +10,8 @@ The aim of this page is to provide a centralized overview of the CMS Particle Fl
 
 This page is based on <a href="https://arxiv.org/pdf/1706.04965.pdf" target="_blank" rel="noopener">[1]</a>.
 
+Link to the <a href="https://github.com/cms-sw/cmssw/tree/master/RecoParticleFlow/PFProducer/src" target="_blank" rel="noopener">Particle Flow Github repository</a>
+
 ## What is Particle Flow?
 
 The Particle Flow (PF) algorithm is used to reconstruct and identify individually all particles produced in CMS by combining information from all subdetectors.<br>
@@ -20,8 +22,6 @@ These particles include:<br>
 * [Photons](corepf.md#photons)
 * [Charged hadrons](corepf.md#charged-hadrons)
 * [Neutral hadrons](corepf.md#neutral-hadrons)
-
-Link to the <a href="https://github.com/cms-sw/cmssw/tree/master/RecoParticleFlow/PFProducer/src" target="_blank" rel="noopener">Particle Flow Github repository</a>
 
 ## How do particles traverse through the CMS detector?
 
