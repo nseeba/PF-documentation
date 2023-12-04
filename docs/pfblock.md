@@ -1,7 +1,7 @@
 # Particle Flow Block algorithm
-<import assets/javascript/glightbox.min.js>
-<import assets/stylesheets/glightbox.min.css>
 <span style="color:red">**PRELIMINARY (COMMENTS WELCOME)**</span>
+
+<a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFBlockAlgo.cc" target="_blank" rel="noopener">PFBlockAlgo.cc</a>
 
 ## What are PF elements?
 <span style="color:red">**TO DO**</span>
