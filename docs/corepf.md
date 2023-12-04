@@ -101,14 +101,14 @@ All particles reconstructed by the PF algorithm are called PF candidates. The se
 ### Muons
  ![pfalgo](assets/mutrack.drawio.svg){ align=right }
 
-Since muons are electrically charged particles, they leave tracks in the inner tracking system of CMS. They have little or no interactions with both the ECAL and HCAL, but they do interact with the CMS muon spectrometer (muon detectors), consisting of drift tube (DT) chambers, cathode strip chambers (CSC), and resistive plate chambers (RPC). 
+Since muons are electrically charged particles, they leave tracks in the inner tracking system of CMS. They have little or no interactions with both the ECAL and HCAL, but they do interact with the CMS muon system, consisting of drift tube (DT) chambers, cathode strip chambers (CSC), and resistive plate chambers (RPC). 
 
-The muon spectrometer grants a high efficiency for muon identification over the full detector acceptance. A high purity is achieved, due to the ECAL and HCAL absorbing the other particles except neutrinos. The momentum of muons is precisely measured by the inner tracker.<br>
+The muon system grants a high efficiency for muon identification over the full detector acceptance. A high purity is achieved, due to the ECAL and HCAL absorbing the other particles except neutrinos. The momentum of muons is precisely measured by the inner tracker.<br>
 The final collection of muon physics objects comprises of 3 types:
 
 * Standalone muon
 <br>
-Hits within each DT or CSC detector are clustered to form track segments. These track segments are used as seeds for the pattern recognition in the muon spectrometer, which aims to gather all DT, CSC, RPC hits along the muon trajectory. The result of the final fitting is called a standalone muon track.
+Hits within each DT or CSC detector are clustered to form track segments. These track segments are used as seeds for the pattern recognition in the muon system, which aims to gather all DT, CSC, RPC hits along the muon trajectory. The result of the final fitting is called a standalone muon track.
 * Global muon
 <br>
 Each standalone-muon track is matched to a track in the inner tracker (inner track), if the parameters of the corresponding tracks propagated onto a common surface are compatible. The hits from the two tracks are combined and fit to form a global muon track. 
