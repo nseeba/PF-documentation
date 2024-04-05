@@ -46,7 +46,7 @@ Each standalone-muon track is matched to a track in the inner tracker (inner tra
 <br>
 Inner tracks with $p_T>0.5$ GeV and total momentum $p>2.5$ GeV are extrapolated to the muon system. If at least 1 track segment matches the extrapolated track, the inner track passes as a tracker muon track. The track to segment matching is done in a local coordinate system $(x,y)$ that is defined in a plane transverse to the beam axis, where $x$ is the better measured coordinate. The track and segment are matched if the absolute value of the difference between their positions in the x coordinate $|\Delta x|<3$ cm or if the ratio of this distance to its uncertainty (pull) is smaller than 4.
 
-<span style="color:red">I think the text below describes the PFMuon algo?</span>
+<span style="color:red">I think the text below describes the PFMuon algo? I will read up on it.</span>
 
 The identification of muons in the PF algorithm goes by a set of selections based on the global and tracker muon properties.
 
