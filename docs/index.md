@@ -57,7 +57,7 @@ The L1 trigger takes information from the calorimeters and the muon detectors in
 
 High Level Trigger reconstruction is called "online" reconstruction, while "offline" reconstruction is the basic Particle Flow reconstruction that is done afterwards. The online reconstruction of a single event at the HLT has to be done within 140 ms on average, which is about 100 times faster than the offline reconstruction, in order to cope with the incoming event rate. This is also why the reconstruction at the HLT needs to be simplified. 
 
-Looking at the offline reconstruction, most of the processing time is spent on reconstructing the inner tracks for the PF algorithm (iterative tracking, explained in the [electron](corepf.md#electrons) reconstruction section). At the HLT, tracking is reduced to 3 iterations, compared to the 10 tracking iterations in the offline reconstruction. 
+Looking at the offline reconstruction, most of the processing time is spent on reconstructing the inner tracks for the PF algorithm (iterative tracking, explained in the ["What are PF elements?"](pfblock/#what-are-pf-elements) section). At the HLT, tracking is reduced to 3 iterations, compared to the 10 tracking iterations in the offline reconstruction. 
 
 After the track reconstruction, a specific instance of the particle identification and reconstruction algorithm runs online. Compared to the offline algorithm two minor differences arise:
 
@@ -65,7 +65,6 @@ After the track reconstruction, a specific instance of the particle identificati
  2. The reconstruction of nuclear interactions in the tracker is not performed
 
  These differences result in a slightly higher jet energy scale (JES) for jets including electrons or nuclear interactions.
-  <!-- It is of great importance to verify that the HLT PF reconstruction is able to reproduce the offline reconstruction results. The testing is done with jets and hadronically decaying tau leptons ($\tau_{h}$), both which are built from reconstructed HLT particles (PF candidates) from a QCD multijet and Drell-Yan sample respectively. -->
 
 ##  <span style="color:#00bdd6">Code organization overview</span>
 <span style="color:red">**WORK IN PROGRESS**</span>
