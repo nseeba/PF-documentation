@@ -76,6 +76,13 @@ After the track reconstruction, a specific instance of the particle identificati
 
 [PFElements](pfblock.md/#What-are-PF-elements) -(<a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFBlockAlgo.cc" target="_blank" rel="noopener">PFBlockAlgo</a>)> [PFBlock](pfblock.md/#overview-of-the-pfblock-algorithm) -(<a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFAlgo.cc" target="_blank" rel="noopener">PFAlgo</a>)> [PFCandidates](corepf.md/#identification-and-reconstruction-of-pf-candidates)
 
+
+add here a flowchart that shows how the PFAlgo looks like in code. 
+
+ * PF element reconstruction (clustering algorithm, charged-particle tracks and vertices, muon tracks, electron tracks)
+ * PF elements are sent to PFBlockAlgo (Elements are linked together and groups of linked elements are made into blocks)
+ * Specific algorithms are used to go through the PF blocks - PFMuonAlgo for building muons, PFEGammaAlgo for electrons and iso photons. Links are removed from the blocks. Remaining links and elements in the blocks are used for building hadrons and non iso photons, final step is for nuclear interactions.
+
 ##  <span style="color:#00bdd6">Further Reference</span>
 
 * <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideParticleFlow" target="_blank" rel="noopener">PF Twiki page</a>

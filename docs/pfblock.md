@@ -39,7 +39,7 @@ For a charged particle to accumulate 8 hits along its trajectory, it must travel
 
 Charged hadrons that are missed by the tracker will be detected by the calorimeters (if detected at all) as neutral hadrons with reduced efficiency, largely degraded energy resolution, and biased direction due to the bending of its trajectory in the magnetic field. Two thirds of the jet energy in a jet are on average carried by charged hadrons, so a 20% tracking inefficiency would double the energy fraction of identified neutral hadrons in a jet from 10% to over 20%. This would degrade the jet energy and angular resolutions by about 50%. Therefore it is critical for PF event reconstruction to increase the track reconstruction efficiency while at the same time keep the misreconstruction rate unchanged.
 
-The tracking inefficiency is reduced by accepting tracks with smaller pT and with fewer hits. Tracks with smaller $p_{T}$ enable us to recover charged particles with small probability to deposit measurable energy in the calorimeters. Fewer hits allow us to catch particles interacting with the material of the tracker inner layers. The improvement sadly increases the combinatorical rate of misreconstructed tracks exponentially. The increase is by a factor 5 when the $p_{T}$ threshold is loosened to 300 MeV and increases by another order of magnitude when the total nr of hits is lowered to 5. If both criteria are loosened together the rate reaches 80%. The misreconstructed tracks, which are made out of randomly associated hits, have randomly distributed momenta and cause large excess energies in PF reconstruction.
+The tracking inefficiency is reduced by accepting tracks with smaller $p_{T}$ and with fewer hits. Tracks with smaller $p_{T}$ enable us to recover charged particles with small probability to deposit measurable energy in the calorimeters. Fewer hits allow us to catch particles interacting with the material of the tracker inner layers. The improvement sadly increases the combinatorical rate of misreconstructed tracks exponentially. The increase is by a factor 5 when the $p_{T}$ threshold is loosened to 300 MeV and increases by another order of magnitude when the total nr of hits is lowered to 5. If both criteria are loosened together the rate reaches 80%. The misreconstructed tracks, which are made out of randomly associated hits, have randomly distributed momenta and cause large excess energies in PF reconstruction. As a means to fix this problem, iterative tracking is used.
 
 ###  <span style="color:#00bdd6">Iterative tracking</span>
 In order to increase the tracking efficiency and decrease the misreconstruction rate, the combinatorial track finder is applied in several successive iterations, each with moderate efficiency but with as high a purity as possible. During each step, the reduction of the misreconstruction rate is done by applying a number of quality criteria on the track seeds, on the track fit $\chi^{2}$, and on the track compatibility. In practice no quality criteria are applied to tracks with at least 8 hits since the misreconstruction rate is already small enough. The hits associated with the tracks that are selected are removed from further processing in the next iteration. The hits that remain are then used in the next iteration to form new seeds and tracks with relaxed quality criteria, which then increases the total tracking efficiency without degrading the purity. This is then repeated several times with progressively more complex and time-consuming seeding, filtering, and tracking algorithms. In total, there are 10 tracking iterations.
@@ -47,8 +47,8 @@ In order to increase the tracking efficiency and decrease the misreconstruction 
 ##  <span style="color:#00bdd6">Overview of the PFBlock algorithm</span>
 
 ###  <span style="color:#00bdd6">Link algorithm</span>
-The Link algorithm is the next step in particle reconstruction following the creation of PF elements. It aims to connect the PF elements from different subdetectors, since a single particle gives rise to many PF elements in the various CMS subdetectors. For example a muon leaves tracks in the tracker and hits in the muon detectors. This is also the part where PF blocks come into play. 
-<br>
+The Link algorithm is the next step in particle reconstruction following the creation of PF elements, and is the first step in the PFBlock algorithm. It aims to connect the PF elements from different subdetectors, since a single particle gives rise to many PF elements in the various CMS subdetectors. For example a muon leaves tracks in the tracker and hits in the muon detectors.
+
 PF blocks consist of PF elements associated either by a direct link or indirect link through common elements. The link algorithm takes pairs of PF elements in an event and tests them. If two elements are linked, the algorithm will define a distance between them, quantifying the quality of the link. 
 
 In conclusion, the Link algorithm connects together PF elements (tracks and clusters) based on their spatial proximity. Links can be formed between:
@@ -58,8 +58,8 @@ In conclusion, the Link algorithm connects together PF elements (tracks and clus
   * Inner tracks and Muon tracks
   * Muon tracks and ECAL clusters/HCAL clusters
 
+After all links are established between the compatible PF elements, PF blocks are formed from groups of linked PF elements. Blocks are also built from PF elements that were not linked to other PF elements, such as single tracks or single clusters.
 
 <span style="color:red">**TO DO / WORK IN PROGRESS**</span>
 
 Add here a flowchart describing the physics logic of the PFBlockAlgo and another one for the code organization.
-Add here also the order of particles built from the blocks. muons, electrons and iso photons, hadrons and non iso photons.

@@ -5,7 +5,7 @@
 
 <a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFAlgo.cc" target="_blank" rel="noopener">PFAlgo.cc</a> - The core of Particle Flow reconstruction. 
 
-<span style="color:red">**TO DO / Explain the code organization of PFAlgo**</span>
+<span style="color:red">**TO DO / Explain the code organization of PFAlgo.** ~ Maybe have here also the same flowchart that will be in the overview page?</span>
 
 
 
