@@ -42,8 +42,7 @@ In conclusion, the Link algorithm connects together PF elements (tracks and clus
 After all links are established between the compatible PF elements, PF blocks are formed from groups of linked PF elements. Blocks are also built from PF elements that were not linked to other PF elements, such as single tracks or single clusters. The overall logic of the PFBlock algorithm can be seen in the flowchart below.
 
  ![blocklog](assets/PFBlockAlgo_logic.drawio.svg){ width="800" height="600" style="display: block; margin: 0 auto" }
- 
-<span style="color:red">**TO DO / WORK IN PROGRESS**</span>
+
 
 The code for the PFBlock algorithm can be found <a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFBlockAlgo.cc" target="_blank" rel="noopener">here</a>.
 
