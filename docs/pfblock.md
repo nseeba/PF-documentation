@@ -45,6 +45,12 @@ After all links are established between the compatible PF elements, PF blocks ar
  
 <span style="color:red">**TO DO / WORK IN PROGRESS**</span>
 
-Github link to <a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFBlockAlgo.cc" target="_blank" rel="noopener">PFBlockAlgo.cc</a>.
+The code for the PFBlock algorithm can be found <a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFBlockAlgo.cc" target="_blank" rel="noopener">here</a>.
 
-Add here a flowchart describing the code organization.
+
+ ![blockcode](assets/PFBlockAlgo_code.drawio.svg){ width="600" align=right style="display: block; margin: 0 auto" }
+
+The input for the PFBlock algorithm is a set of PF elements and the output is a collection of PFBlocks.
+
+First linkers (used to link the elements) and importer plugins (used to import the inputs) are specified (setImporters and setLinkers). All importers are run and a global list of PFBlockElements is built from all inputs (buildElements). A pre-processing of the elements is done by the KDTreeAlgo (space partitioning algorithm, used for the most combinatorically expensive pairs) and KDTrees are built. Next, PF blocks are built (findBlocks) with running linkers as loops over the list of PFBlockElements and the pre-processed KDTrees. A re-linking step comes after (packLinks), which is done in order to check for extra links between elements. When all PFBlockElements have been processed and sorted into PF blocks, the algorithm stops. 
+
