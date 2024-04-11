@@ -1,8 +1,6 @@
 # Particle Flow Block algorithm
 <span style="color:red">**PRELIMINARY (COMMENTS WELCOME)**</span>
 
-<a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFBlockAlgo.cc" target="_blank" rel="noopener">PFBlockAlgo.cc</a>
-
 ##  <span style="color:#00bdd6">What are PF elements?</span>
 
 PF elements are the basic inputs for the PFBlock algorithm. They can be divided into:
@@ -40,9 +38,13 @@ In conclusion, the Link algorithm connects together PF elements (tracks and clus
   * Inner tracks and Muon tracks
   * Muon tracks and ECAL clusters/HCAL clusters
 
+### <span style="color:#00bdd6">PFBlock algorithm</span>
 After all links are established between the compatible PF elements, PF blocks are formed from groups of linked PF elements. Blocks are also built from PF elements that were not linked to other PF elements, such as single tracks or single clusters. The overall logic of the PFBlock algorithm can be seen in the flowchart below.
 
  ![blocklog](assets/PFBlockAlgo_logic.drawio.svg){ width="800" height="600" style="display: block; margin: 0 auto" }
  
 <span style="color:red">**TO DO / WORK IN PROGRESS**</span>
+
+Github link to <a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFBlockAlgo.cc" target="_blank" rel="noopener">PFBlockAlgo.cc</a>.
+
 Add here a flowchart describing the code organization.
