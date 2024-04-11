@@ -57,7 +57,7 @@ The L1 trigger takes information from the calorimeters and the muon detectors in
 
 High Level Trigger reconstruction is called "online" reconstruction, while "offline" reconstruction is the basic Particle Flow reconstruction that is done afterwards. The online reconstruction of a single event at the HLT has to be done within 140 ms on average, which is about 100 times faster than the offline reconstruction, in order to cope with the incoming event rate. This is also why the reconstruction at the HLT needs to be simplified. 
 
-Looking at the offline reconstruction, most of the processing time is spent on reconstructing the inner tracks for the PF algorithm (iterative tracking, explained in the ["What are PF elements?"](pfblock/#what-are-pf-elements) section). At the HLT, tracking is reduced to 3 iterations, compared to the 10 tracking iterations in the offline reconstruction. 
+Looking at the offline reconstruction, most of the processing time is spent on reconstructing the inner tracks for the PF algorithm (iterative tracking, explained in the ["What are PF elements?"](pfblock.md#what-are-pf-elements) section). At the HLT, tracking is reduced to 3 iterations, compared to the 10 tracking iterations in the offline reconstruction. 
 
 After the track reconstruction, a specific instance of the particle identification and reconstruction algorithm runs online. Compared to the offline algorithm two minor differences arise:
 
