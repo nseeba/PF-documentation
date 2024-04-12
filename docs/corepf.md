@@ -17,6 +17,8 @@ So in conclusion particles are dealt with in this order: muons, electrons, hadro
 
 The flowchart below gives an overview of the core PFAlgo, and the code for the core PFAlgo can be found <a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFAlgo.cc" target="_blank" rel="noopener">here</a>.
 
+![corecode](assets/corePFAlgo.drawio.svg){ width="800" style="display: block; margin: 0 auto" }
+
 ##  <span style="color:#00bdd6">Identification and reconstruction of PF candidates</span>
 This section is based on <a href="https://arxiv.org/pdf/1706.04965.pdf" target="_blank" rel="noopener">"Particle-flow reconstruction and global event description with the CMS detector"</a> by the CMS collaboration released in 2017.
 
