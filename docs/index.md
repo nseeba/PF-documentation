@@ -67,21 +67,23 @@ After the track reconstruction, a specific instance of the particle identificati
  These differences result in a slightly higher jet energy scale (JES) for jets including electrons or nuclear interactions.
 
 ##  <span style="color:#00bdd6">Code organization overview</span>
-<span style="color:red">**WORK IN PROGRESS**</span>
+
+The physics-based overview of the Particle Flow reconstruction and identification algorithm can be seen in Figure 2, where a short description is given about the logic of the algorithm as a flowchart, starting from the particle collisions in CMS and ending with the creation of the PF candidates.
 
 <figure markdown>
  ![pfalgo](assets/pfalgo.drawio.svg)
  <figcaption>Figure 2. Physics-based overview of the Particle Flow algorithm </figcaption> 
  </figure>
 
-[PFElements](pfblock.md/#What-are-PF-elements) -(<a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFBlockAlgo.cc" target="_blank" rel="noopener">PFBlockAlgo</a>)> [PFBlock](pfblock.md/#overview-of-the-pfblock-algorithm) -(<a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFAlgo.cc" target="_blank" rel="noopener">PFAlgo</a>)> [PFCandidates](corepf.md/#identification-and-reconstruction-of-pf-candidates)
 
+ The basic code-based overview of the algorithm is shown in Figure 3.
+ 
+ * The algorithm starts with PF element reconstruction (tracks and clusters), which is done by the clustering algorithm and track reconstruction algorithms, taking the recorded hits in the inner tracker and both calorimeters as input. 
+ * Next, the PF elements are sorted into blocks by the [PFBlock algorithm](pfblock.md) (PF elements are linked together and groups of linked elements are made into PF blocks).
+ * PF candidates are built from the PF blocks by the [core PF algorithm](corepf.md). The blocks are processed in a specific manner by particle type. First, muons are created, then electrons and isolated photons, and finally charged hadrons, neutral hadrons and nonisolated photons. All particles reconstructed by the PF algorithm are called PF candidates.
 
-add here a flowchart that shows how the PFAlgo looks like in code. 
-
- * PF element reconstruction (clustering algorithm, charged-particle tracks and vertices, muon tracks, electron tracks)
- * PF elements are sent to PFBlockAlgo (Elements are linked together and groups of linked elements are made into blocks)
- * Specific algorithms are used to go through the PF blocks - PFMuonAlgo for building muons, PFEGammaAlgo for electrons and iso photons. Links are removed from the blocks. Remaining links and elements in the blocks are used for building hadrons and non iso photons, final step is for nuclear interactions.
+ ![PFcode](assets/PFAlgo_overview.drawio.svg){style="display: block; margin: 0 auto" }
+ <figcaption>Figure 3. Basic code-based overview of the Particle Flow algorithm </figcaption> 
 
 ##  <span style="color:#00bdd6">Further Reference</span>
 

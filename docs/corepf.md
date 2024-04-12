@@ -3,13 +3,7 @@
 
 ##  <span style="color:#00bdd6">Overview of the core PF algorithm</span>
 
-<a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFAlgo.cc" target="_blank" rel="noopener">PFAlgo.cc</a> - The core of Particle Flow reconstruction. 
-
-<span style="color:red">**TO DO / Explain the code organization of PFAlgo.** ~ Maybe have here also the same flowchart that will be in the overview page?</span>
-
-
-
-First, the calorimeter energy deposits are connected into clusters, and then all of the tracks and clusters are linked to each other based on spatial proximity. Blocks can be formed from groups of linked tracks and clusters, and from these blocks particle candidates can be separated out. The resulting list of “particle flow candidates” becomes the input to any event interpretation algorithm in CMS.
+After the formation of PF blocks, particle candidates are separated out by the core PF algorithm. The resulting list of “particle flow candidates” becomes the input to any event interpretation algorithm in CMS.
 
 In each PF block the identification and reconstruction sequence proceeds as so:
 
@@ -19,9 +13,9 @@ In each PF block the identification and reconstruction sequence proceeds as so:
 4. Nuclear interactions coming from hadrons create secondary particles. These hadrons are identified and reconstructed.
 5. When the global event description becomes available, meaning when all blocks have been processed and all particles identified, the reconstructed event is revisited by a post-processing step.
 
-So in conclusion particles are dealt with in this order: muons, electrons, hadrons, photons, nuclear interactions. When one of them is processed, the corresponding tracks-clusters-links are removed from further consideration. 
+So in conclusion particles are dealt with in this order: muons, electrons, hadrons, photons, nuclear interactions. When one of them is processed, the corresponding tracks-clusters-links are removed from further consideration.
 
-One can think like this -  LINKS-BLOCKS-PARTICLES.
+The flowchart below gives an overview of the core PFAlgo, and the code for the core PFAlgo can be found <a href="https://github.com/cms-sw/cmssw/blob/master/RecoParticleFlow/PFProducer/src/PFAlgo.cc" target="_blank" rel="noopener">here</a>.
 
 ##  <span style="color:#00bdd6">Identification and reconstruction of PF candidates</span>
 This section is based on <a href="https://arxiv.org/pdf/1706.04965.pdf" target="_blank" rel="noopener">"Particle-flow reconstruction and global event description with the CMS detector"</a> by the CMS collaboration released in 2017.
