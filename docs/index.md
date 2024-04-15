@@ -8,7 +8,8 @@ The aim of this page is to provide a centralized overview of the CMS Particle Fl
 * [Core Particle Flow algorithm](corepf.md)
 
 
-This page is based on <a href="https://arxiv.org/pdf/1706.04965.pdf" target="_blank" rel="noopener">[1]</a>.
+This page is mostly based on the 2017 CMS paper "Particle-flow reconstruction and global event
+description with the CMS detector" <a href="https://iopscience.iop.org/article/10.1088/1748-0221/12/10/P10003/pdf" target="_blank" rel="noopener">[1]</a>.
 
 <a href="https://github.com/cms-sw/cmssw/tree/master/RecoParticleFlow/PFProducer/src" target="_blank" rel="noopener">Link</a> to the Particle Flow algorithm in CMSSW.
 
@@ -57,7 +58,7 @@ The L1 trigger takes information from the calorimeters and the muon detectors in
 
 High Level Trigger reconstruction is called "online" reconstruction, while "offline" reconstruction is the basic Particle Flow reconstruction that is done afterwards. The online reconstruction of a single event at the HLT has to be done within 140 ms on average, which is about 100 times faster than the offline reconstruction, in order to cope with the incoming event rate. This is also why the reconstruction at the HLT needs to be simplified. 
 
-Looking at the offline reconstruction, most of the processing time is spent on reconstructing the inner tracks for the PF algorithm (iterative tracking, explained in the ["What are PF elements?"](pfblock/#what-are-pf-elements) section). At the HLT, tracking runs a single global iteration, compared to the 10 tracking iterations in the offline reconstruction. 
+Looking at the offline reconstruction, most of the processing time is spent on reconstructing the inner tracks for the PF algorithm (iterative tracking, explained in the ["What are PF elements?"](pfblock.md/#what-are-pf-elements) section). At the HLT, tracking runs a single global iteration <a href="https://ep-news.web.cern.ch/content/cms-trigger-system-run-3#" target="_blank" rel="noopener">[3]</a>, compared to the 10 tracking iterations in the offline reconstruction. 
 
 After the track reconstruction, a specific instance of the particle identification and reconstruction algorithm runs online. Compared to the offline algorithm two minor differences arise:
 
@@ -88,6 +89,8 @@ The physics-based overview of the Particle Flow reconstruction and identificatio
 ##  <span style="color:#00bdd6">Further Reference</span>
 
 * <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideParticleFlow" target="_blank" rel="noopener">PF Twiki page</a>
+* <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideParticleFlowLinking" target="_blank" rel="noopener">Twiki page for PFBlockAlgo</a>
+* <a href="https://indico.cern.ch/event/544648/contributions/2210348/attachments/1295996/1932331/BachtisJME_PF.pdf" target="_blank" rel="noopener">Particle Flow Reconstruction "under the hood" by Michalis Bachtis - A presentation giving a good overview of the PF algorithm.</a>
 
 
 
@@ -96,6 +99,8 @@ References
 
 - [1]  [The CMS Collaboration, 2017, "Particle-flow reconstruction and global event description with the CMS detector"][PF]
 - [2]  [The CMS Collaboration, 2008, "The CMS experiment at the CERN LHC"][CMS]
+- [3]  [Juliette Alimena (DESY), 2023, "The CMS Trigger System for Run 3"][HLT]
 
-[PF]: https://arxiv.org/pdf/1706.04965.pdf
+[PF]: https://iopscience.iop.org/article/10.1088/1748-0221/12/10/P10003/pdf
 [CMS]: https://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08004/pdf
+[HLT]: https://ep-news.web.cern.ch/content/cms-trigger-system-run-3

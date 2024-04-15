@@ -51,7 +51,10 @@ The code for the PFBlock algorithm can be found <a href="https://github.com/cms-
 
  ![blockcode](assets/PFBlockAlgo_code.drawio.svg){ width="600" align=right style="display: block; margin: 0 auto" }
 
+
 The input for the PFBlock algorithm is a set of PF elements and the output is a collection of PFBlocks.
 
 First linkers (used to link the elements) and importer plugins (used to import the inputs) are specified (setImporters and setLinkers). All importers are run and a global list of PFBlockElements is built from all inputs (buildElements). A pre-processing of the elements is done by the KDTreeAlgo (space partitioning algorithm, used for the most combinatorically expensive pairs) and KDTrees are built. Next, PF blocks are built (findBlocks) with running linkers as loops over the list of PFBlockElements and the pre-processed KDTrees. A re-linking step comes after (packLinks), which is done in order to check for extra links between elements. When all PFBlockElements have been processed and sorted into PF blocks, the algorithm stops. 
+
+For further reference, Lindsey Gray (FNAL) presented updates for the PFBlockProducer in 2014 that were intergrated in the algorithm. The slides can be found <a href="https://indico.cern.ch/event/312345/contributions/1684340/attachments/597927/822916/PFBA_LindseyGray_08042014.pdf" target="_blank" rel="noopener">here</a> and <a href="https://indico.cern.ch/event/315066/contributions/728134/attachments/604508/831936/PFBAValidation_LindseyGray_22042014.pdf" target="_blank" rel="noopener">here</a>.
 
