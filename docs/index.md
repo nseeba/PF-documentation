@@ -40,6 +40,7 @@ The central feature of the  CMS detector is a large superconducting solenoid mag
 <figure markdown>
   ![cmsslice](assets/cmsslice.png){align="center"}
   <figcaption>Figure 1. Schematic of the specific particle interactions in a transverse slice of the CMS detector <a href="https://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08004/pdf" target="_blank" rel="noopener">[2]</a> </figcaption> 
+  fig.align = 'right'
  </figure>
 
 1. From the interaction point outwards, particles first enter the inner tracking system, where charged particle trajectories (tracks) and origins (vertices) are reconstructed from hits in the layers of the CMS tracking system. The tracks are bent due to the magnetic field, which enables the measurement of charged particle momentum and electric charge.
@@ -90,7 +91,7 @@ The physics-based overview of the Particle Flow reconstruction and identificatio
 
 * <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideParticleFlow" target="_blank" rel="noopener">PF Twiki page</a>
 * <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideParticleFlowLinking" target="_blank" rel="noopener">Twiki page for PFBlockAlgo</a>
-* <a href="https://indico.cern.ch/event/544648/contributions/2210348/attachments/1295996/1932331/BachtisJME_PF.pdf" target="_blank" rel="noopener">Particle Flow Reconstruction "under the hood" by Michalis Bachtis - A presentation giving a good overview of the PF algorithm.</a>
+* <a href="https://indico.cern.ch/event/544648/contributions/2210348/attachments/1295996/1932331/BachtisJME_PF.pdf" target="_blank" rel="noopener">Particle Flow Reconstruction "under the hood" by Michalis Bachtis (2016) - A presentation giving a good overview of the PF algorithm.</a>
 
 
 
