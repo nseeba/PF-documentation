@@ -40,7 +40,6 @@ The central feature of the  CMS detector is a large superconducting solenoid mag
 <figure markdown>
   ![cmsslice](assets/cmsslice.png){align="center"}
   <figcaption>Figure 1. Schematic of the specific particle interactions in a transverse slice of the CMS detector <a href="https://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08004/pdf" target="_blank" rel="noopener">[2]</a> </figcaption> 
-  fig.align = 'right'
  </figure>
 
 1. From the interaction point outwards, particles first enter the inner tracking system, where charged particle trajectories (tracks) and origins (vertices) are reconstructed from hits in the layers of the CMS tracking system. The tracks are bent due to the magnetic field, which enables the measurement of charged particle momentum and electric charge.
