@@ -90,8 +90,7 @@ The physics-based overview of the Particle Flow reconstruction and identificatio
 
 * <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideParticleFlow" target="_blank" rel="noopener">PF Twiki page</a>
 * <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideParticleFlowLinking" target="_blank" rel="noopener">Twiki page for PFBlockAlgo</a>
-* <a href="https://indico.cern.ch/event/544648/contributions/2210348/attachments/1295996/1932331/BachtisJME_PF.pdf" target="_blank" rel="noopener">Particle Flow Reconstruction "under the hood" by Michalis Bachtis (2016) - A presentation giving a good overview of the PF algorithm.</a>
-
+* [Particle Flow Reconstruction "under the hood" by Michalis Bachtis (2016)](assets/presentations/BachtisJME_PF.pdf) - A presentation giving a good overview of the PF algorithm.
 
 
 References
