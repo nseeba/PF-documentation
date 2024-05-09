@@ -1,0 +1,625 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="pfblock/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+    
+    
+      
+        <title>PF Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/glightbox.min.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="PF Documentation" class="md-header__button md-logo" aria-label="PF Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PF Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+    
+  
+  Overview
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="pfblock/" class="md-tabs__link">
+        
+  
+    
+  
+  Particle Flow Block algorithm
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="corepf/" class="md-tabs__link">
+        
+  
+    
+  
+  Core Particle Flow algorithm
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="PF Documentation" class="md-nav__button md-logo" aria-label="PF Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    PF Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-particle-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Particle Flow?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-particles-traverse-through-the-cms-detector" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do particles traverse through the CMS detector?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#offline-and-high-level-trigger-reconstruction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Offline and High Level Trigger reconstruction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-organization-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code organization overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pfblock/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Particle Flow Block algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="corepf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Core Particle Flow algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="overview">Overview</h1>
+<p><span style="color:red"><strong>PRELIMINARY (COMMENTS WELCOME)</strong></span></p>
+<p>Welcome to the documentation of the CMS Particle Flow Algorithm. <br> 
+The aim of this page is to provide a centralized overview of the CMS Particle Flow algorithm with the main focus being on:</p>
+<ul>
+<li><a href="pfblock/">Particle Flow Block algorithm</a></li>
+<li><a href="corepf/">Core Particle Flow algorithm</a></li>
+</ul>
+<p>This page is mostly based on the 2017 CMS paper "Particle-flow reconstruction and global event
+description with the CMS detector" <a href="https://iopscience.iop.org/article/10.1088/1748-0221/12/10/P10003/pdf" target="_blank" rel="noopener">[1]</a>.</p>
+<p><a href="https://github.com/cms-sw/cmssw/tree/master/RecoParticleFlow/PFProducer/src" target="_blank" rel="noopener">Link</a> to the Particle Flow algorithm in CMSSW.</p>
+<h2 id="what-is-particle-flow"><span style="color:#00bdd6">What is Particle Flow?</span></h2>
+<p>The Particle Flow (PF) algorithm is used to reconstruct and identify all particles produced in CMS individually by combining information from all subdetectors.
+<br>
+These particles include:<br></p>
+<ul>
+<li><a href="corepf/#muons">Muons</a></li>
+<li><a href="corepf/#electrons">Electrons</a></li>
+<li><a href="corepf/#photons">Photons</a></li>
+<li><a href="corepf/#hadrons">Neutral hadrons</a></li>
+<li><a href="corepf/#hadrons">Charged hadrons</a></li>
+</ul>
+<h2 id="how-do-particles-traverse-through-the-cms-detector"><span style="color:#00bdd6">How do particles traverse through the CMS detector?</span></h2>
+<p>Starting from the interaction point, particles will traverse outwards, passing through the following subsystems:</p>
+<ul>
+<li>Inner tracker</li>
+<li>Electromagnetic calorimeter (ECAL)</li>
+<li>Hadronic calorimeter (HCAL)</li>
+<li>Solenoid</li>
+<li>Muon system</li>
+</ul>
+<p>The central feature of the  CMS detector is a large superconducting solenoid magnet with a field of currently 3.8 T. Due to the strong magnetic field, the trajectories of charged particles traversing the detector are bent, allowing for a precise momentum and charge measurement by reconstructing their path using the inner tracking detectors. Neutral particles however are identified and measured by their energy deposits in the two calorimeters. Both the inner tracking system as well as the two calorimeters are physically located inside the solenoid, with the muons systems placed in and around an iron return yoke constraining the magnetic field outside the solendoid. A transverse slice of the CMS detector can be seen in Figure 1, showing how different particles interact with the detector elements and travel through the detector. A detailed description of the CMS detector with all of its subdetectors can be found in <a href="https://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08004/pdf" target="_blank" rel="noopener">[2]</a>. A short summary of the particle interactions in the detector elements is given below. </p>
+<figure>
+<p><a class="glightbox" href="assets/cmsslice.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img align="center" alt="cmsslice" src="assets/cmsslice.png" /></a>
+  </p>
+<figcaption>Figure 1. Schematic of the specific particle interactions in a transverse slice of the CMS detector <a href="https://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08004/pdf" target="_blank" rel="noopener">[2]</a> </figcaption>
+</figure>
+<ol>
+<li>From the interaction point outwards, particles first enter the inner tracking system, where charged particle trajectories (tracks) and origins (vertices) are reconstructed from hits in the layers of the CMS tracking system. The tracks are bent due to the magnetic field, which enables the measurement of charged particle momentum and electric charge.</li>
+<li>From the inner tracking system, particles enter the ECAL, where depending on the particle type they start showering and losing energy, which can be reconstructed as clusters. Electrons and photons are fully absorbed in the ECAL, charged and neutral hadrons lose some but usually not all of their energy and move on the the HCAL together with the muons, which as minimum ionizing particles (MIP) only lose small amounts of energy in the calorimeters.</li>
+<li>Charged and neutral hadrons continue showering in the HCAL, where they lose most if not all of their energy and get fully absorbed. Hadrons with enough energy can penetrate the outer boundaries of the HCAL and are stopped in the iron yoke surrounding the solenoid.</li>
+<li>Finally, muons leave tracks in the muon system allowing for their identification and futher constraints on their momentum.</li>
+</ol>
+<h2 id="offline-and-high-level-trigger-reconstruction"><span style="color:#00bdd6">Offline and High Level Trigger reconstruction</span></h2>
+<p>The CMS detector has a two level trigger system comprising of:</p>
+<ul>
+<li>The L1 Trigger</li>
+<li>The High Level Trigger (HLT)</li>
+</ul>
+<p>The L1 trigger takes information from the calorimeters and the muon detectors in order to select interesting events in a fixed time interval of less than 4 <span class="arithmatex">\(\mu\)</span>s. It is designed to reduce the initial bunch crossing rate of 40 MHz to 100 kHz. If an event is accepted by the L1 trigger, the full detector information is read out and sent to the HLT, which further decreases the event rate from 100 kHz to only about 1-3 kHz before data storage for later offline reconstruction. The HLT software runs on a CPU+GPU farm. For optimal performance, the Particle Flow algorithm is run in a simplified mode, which provides physics objects with better resolution compared to traditional reconstruction methods. The reconstruction at the HLT is needed in order to make sure which events are of interest and should be stored for further analysis.</p>
+<p>High Level Trigger reconstruction is called "online" reconstruction, while "offline" reconstruction is the basic Particle Flow reconstruction that is done afterwards. The online reconstruction of a single event at the HLT has to be done within 140 ms on average, which is about 100 times faster than the offline reconstruction, in order to cope with the incoming event rate. This is also why the reconstruction at the HLT needs to be simplified. </p>
+<p>Looking at the offline reconstruction, most of the processing time is spent on reconstructing the inner tracks for the PF algorithm (iterative tracking, explained in the <a href="pfblock/#what-are-pf-elements">"What are PF elements?"</a> section). At the HLT, tracking runs a single global iteration <a href="https://ep-news.web.cern.ch/content/cms-trigger-system-run-3#" target="_blank" rel="noopener">[3]</a>, compared to the 10 tracking iterations in the offline reconstruction. </p>
+<p>After the track reconstruction, a specific instance of the particle identification and reconstruction algorithm runs online. Compared to the offline algorithm two minor differences arise:</p>
+<ol>
+<li>Electron identification and reconstruction is not integrated in the online algorithm</li>
+<li>The reconstruction of nuclear interactions in the tracker is not performed</li>
+</ol>
+<p>These differences result in a slightly higher jet energy scale (JES) for jets including electrons or nuclear interactions.</p>
+<h2 id="code-organization-overview"><span style="color:#00bdd6">Code organization overview</span></h2>
+<p>The physics-based overview of the Particle Flow reconstruction and identification algorithm can be seen in Figure 2, where a short description is given about the logic of the algorithm as a flowchart, starting from the particle collisions in CMS and ending with the creation of the PF candidates.</p>
+<figure>
+<p><a class="glightbox" href="assets/pfalgo.drawio.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="pfalgo" src="assets/pfalgo.drawio.svg" /></a>
+ </p>
+<figcaption>Figure 2. Physics-based overview of the Particle Flow algorithm </figcaption>
+</figure>
+<p>The basic code-based overview of the algorithm is shown in Figure 3.</p>
+<ul>
+<li>The algorithm starts with PF element reconstruction (tracks and clusters), which is done by the clustering algorithm and track reconstruction algorithms, taking the recorded hits in the inner tracker and both calorimeters as input. </li>
+<li>Next, the PF elements are sorted into blocks by the <a href="pfblock/">PFBlock algorithm</a> (PF elements are linked together and groups of linked elements are made into PF blocks).</li>
+<li>PF candidates are built from the PF blocks by the <a href="corepf/">core PF algorithm</a>. The blocks are processed in a specific manner by particle type. First, muons are created, then electrons and isolated photons, and finally charged hadrons, neutral hadrons and nonisolated photons. All particles reconstructed by the PF algorithm are called PF candidates.</li>
+</ul>
+<p><a class="glightbox" href="assets/PFAlgo_overview.drawio.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="PFcode" src="assets/PFAlgo_overview.drawio.svg" style="display: block; margin: 0 auto" /></a>
+ 
+<figcaption>Figure 3. Basic code-based overview of the Particle Flow algorithm </figcaption>
+</p>
+<h2 id="further-reference"><span style="color:#00bdd6">Further Reference</span></h2>
+<ul>
+<li><a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideParticleFlow" target="_blank" rel="noopener">PF Twiki page</a></li>
+<li><a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideParticleFlowLinking" target="_blank" rel="noopener">Twiki page for PFBlockAlgo</a></li>
+<li><a href="assets/presentations/BachtisJME_PF.pdf">Particle Flow Reconstruction "under the hood" by Michalis Bachtis (2016)</a> - A presentation giving a good overview of the PF algorithm.</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li>[1]  <a href="https://iopscience.iop.org/article/10.1088/1748-0221/12/10/P10003/pdf">The CMS Collaboration, 2017, "Particle-flow reconstruction and global event description with the CMS detector"</a></li>
+<li>[2]  <a href="https://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08004/pdf">The CMS Collaboration, 2008, "The CMS experiment at the CERN LHC"</a></li>
+<li>[3]  <a href="https://ep-news.web.cern.ch/content/cms-trigger-system-run-3">Juliette Alimena (DESY), 2023, "The CMS Trigger System for Run 3"</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2023
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="assets/javascript/glightbox.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
